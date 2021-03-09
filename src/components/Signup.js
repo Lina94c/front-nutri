@@ -109,7 +109,7 @@ function Signup() {
       <FormWrap>
       <FormContent>
         <Formu form={form}  layout='vertical'>
-        <FormH1>Create your Account</FormH1>
+        <FormH1>Crea tu usuario</FormH1>
         <FormLabel htmlFor= 'for'>Nombre usuario</FormLabel>
         <FormInput type='username' required />
         <FormLabel htmlFor= 'for'>e-mail</FormLabel>
