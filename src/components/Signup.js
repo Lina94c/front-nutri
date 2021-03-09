@@ -1,16 +1,13 @@
-import React from "react";
+import { Form, message } from "antd"
+import { signupFn } from "../services/auth"
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-    min-height: 300px;
-    position: fixed;
-    bottom: 0;
+    margin-top: 40px;
     left: 0;
     right: 0;
     top: 0;
-    z-index: 0;
-    overflow: hidden;
         `;
 
         export const FormWrap = styled.div`
@@ -22,6 +19,7 @@ export const Container = styled.div`
         }
         `;
 
+  
         export const FormContent = styled.div`
             height: 100%;
             display: flex;
@@ -32,11 +30,11 @@ export const Container = styled.div`
             }
         `;
 
-        export const Form = styled.form`
+        export const Formu = styled.form`
         background: #ffff;
         max-width: 400px;
         height: auto;
-        width: 100%;
+        width: 50%;
         z-index: 1;
         display: grid;
         margin: 0 auto;
@@ -49,8 +47,9 @@ export const Container = styled.div`
         `;
 
         export const FormH1 = styled.h1`
-            font-family:'Montserrat', sans-serif;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+            color: #333333;
             font-size: 20px;
             font-weight: 400;
             text-align: center;
@@ -58,9 +57,8 @@ export const Container = styled.div`
 
         export const FormLabel = styled.label`
         margin-bottom: 8px;
-        font-size: 13px;
         font-family: 'Montserrat', sans-serif;
-        color: #red;
+        font-size: 13px;
         `;
 
         export const FormInput = styled.input`
@@ -68,8 +66,8 @@ export const Container = styled.div`
         margin-bottom: 32px;
         border-width: thin;
         font-family: 'Montserrat', sans-serif;
-        border-radius: 4px;
         outline:none;
+        border-radius: 4px;
         `;
 
         export const FormButton = styled.button`
@@ -92,34 +90,38 @@ export const Container = styled.div`
             }
             `;
 
-        export const Text = styled.span`
-            text-align: ClientRect;
-            font-family:'Montserrat', sans-serif;
-            margin-top: 24px;
-            color: #333333;
-            font-size: 13px;
-        `;
+       
 
-        const SignIn = () => {
-            return (
-                <>
-                    <Container>
-                        <FormWrap>
-                            <FormContent>
-                                <Form action="#">
-                                    <FormH1>Inicia sesión</FormH1>
-                                    <FormLabel htmlFor= 'for'>Email</FormLabel>
-                                    <FormInput type='email' required />
-                                    <FormLabel htmlFor= 'for'>Password</FormLabel>
-                                    <FormInput type='password' required />
-                                    <FormButton type='submit'>Continuar</FormButton>
-                                    <Text>¿Olivdaste tu contraseña?</Text>
-                                </Form>
-                            </FormContent>
-                        </FormWrap>
-                    </Container>   
-                </>
-            )
-        }
-        
-        export default SignIn;
+function Signup() {
+  const [form] = Form.useForm()
+
+  async function handleSubmit(userInfo) {
+    try {
+      await signupFn(userInfo)
+      message.success("Account created")
+    } catch (error) {
+      message.error(error.response.data.message)
+    }
+  }
+
+  return (
+    <Container>
+      <FormWrap>
+      <FormContent>
+        <Formu form={form}  layout='vertical'>
+        <FormH1>Create your Account</FormH1>
+        <FormLabel htmlFor= 'for'>Nombre usuario</FormLabel>
+        <FormInput type='username' required />
+        <FormLabel htmlFor= 'for'>e-mail</FormLabel>
+        <FormInput type='email' required />
+        <FormLabel htmlFor= 'for'>Password</FormLabel>
+        <FormInput type='password' required />
+        <FormButton onClick={handleSubmit}>Contraseña</FormButton>
+        </Formu>
+        </FormContent>
+      </FormWrap>
+    </Container>
+  )
+}
+
+export default Signup

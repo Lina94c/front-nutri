@@ -10,7 +10,7 @@ const _axios = axios.create({
   withCredentials: true
 })
 
-export const signupFn = user => _axios.post("/signup", user)
+export const signupFn = newUser => _axios.post("/signup", newUser)
 export const loginFn = user => _axios.post("/login", user)
 export const logoutFn = _ => _axios.get("/logout")
 export const getCurrentUser = _ => _axios.get("/session")

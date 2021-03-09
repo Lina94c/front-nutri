@@ -73,7 +73,7 @@ const NavItem = styled.li`
     height: 80px;
 `;
 
-const NavLinks = styled(LinkS)`
+const NavLinks = styled(LinkR)`
     color:black;
     display: flex;
     align-items: center;
@@ -155,7 +155,7 @@ const NavBtnLink = styled(LinkR)`
                                 >Alimentos</NavLinks>
                             </NavItem>
                             <NavItem>
-                                <NavLinks to="signup"
+                                <NavLinks to="/signup"
                                 smooth={true}
                                 duration={500}
                                 spy={true}

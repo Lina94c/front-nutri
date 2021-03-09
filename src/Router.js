@@ -12,6 +12,7 @@ import Home from "./views/Home";
 //----------User----------
 
 import Login from "./components/Login";
+import SignUp from "./components/Signup";
 
 
 const Router = () => (
@@ -20,6 +21,7 @@ const Router = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/login" component={Login} />
+        <Route path="/signup" component={SignUp} />
     </Switch>
     </BrowserRouter>
   );
