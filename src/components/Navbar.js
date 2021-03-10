@@ -1,13 +1,9 @@
 import styled from 'styled-components';
 import{ Link as LinkR } from 'react-router-dom';
-import{ Link as LinkS } from 'react-scroll';
-import logo from "../images/NutriSmart.png";
 
-//Tamaño del Navbar
 const Nav = styled.nav`
     background: rgb(211,232,186);
     height: 80px;
-    ${'' /* margin-top: -80px;  */}
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,7 +26,7 @@ const NavbarContainer = styled.div`
     max-width: 1100px; 
 `;
 
-//Logo interactivo, se hace click y vuelves al home. La R es de React Router Link
+
 const NavLogo = styled(LinkR)`
     color: black;
     justify-self: flex-start;
@@ -43,11 +39,11 @@ const NavLogo = styled(LinkR)`
     font-weight: bold;
     text-decoration: none;
 `;
-//Menu hamburguesa, acá debe estar el problema / pero el menu en responsive se ve bien
+
 const MobileIcon = styled.div`
     display: none;
 @media screen and (max-width: 768px) {
-    display: block; /*es none????*/
+    display: block; 
     position: absolute;
     top: 0;
     right: 0;
@@ -82,8 +78,6 @@ const NavLinks = styled(LinkR)`
     padding: 0 1rem;
     height: 100%;
     cursor: pointer;
-      
- /* Highlight links in yellow*/
     &.active {
         border-bottom: 3px solid #fffe11b;
         
@@ -146,7 +140,7 @@ const NavBtnLink = styled(LinkR)`
                                 >Planes</NavLinks>
                             </NavItem>
                             <NavItem>
-                                <NavLinks to="services"
+                                <NavLinks to="alimentos"
                                 smooth={true}
                                 duration={500}
                                 spy={true}

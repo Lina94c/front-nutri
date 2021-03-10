@@ -1,20 +1,19 @@
 import React from "react";
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import img from '../images/nature.png'
 
 export const Container = styled.div`
-    min-height: 300px;
-    position: fixed;
-    bottom: 0;
+    background-image: url(${img});
+    position:inherit;
     left: 0;
     right: 0;
-    top: 0;
-    z-index: 0;
-    overflow: hidden;
+    
         `;
 
         export const FormWrap = styled.div`
-        height: 100%;
+        padding:40px;
+        height: 50%;
         display: flex;
         flex-direction: column;
         justify-content: center;
