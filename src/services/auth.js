@@ -15,3 +15,5 @@ export const loginFn = user => _axios.post("/login", user)
 export const logoutFn = _ => _axios.get("/logout")
 export const getCurrentUser = _ => _axios.get("/session")
 export const updateAvatar = avatar => _axios.post("/avatar/change", { avatar })
+export const editUser = ({ user, ...restuser }) =>
+  _axios.patch("/auth/user/update", restuser);

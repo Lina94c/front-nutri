@@ -122,22 +122,22 @@ const NavBtnLink = styled(LinkR)`
                         </MobileIcon>
                         <NavMenu>
                             <NavItem>
-                                <NavLinks to="about"
+                                <NavLinks to="profile"
                                 smooth={true}
                                 duration={500}
                                 spy={true}
                                 exact='true'
                                 offset={-80}
-                                >Nosotros</NavLinks>
+                                >Mi perfil</NavLinks>
                             </NavItem>
                             <NavItem>
-                                <NavLinks to="discover"
+                                <NavLinks to="/all"
                                 smooth={true}
                                 duration={500}
                                 spy={true}
                                 exact='true'
                                 offset={-80}
-                                >Planes</NavLinks>
+                                >Alimentos</NavLinks>
                             </NavItem>
                             <NavItem>
                                 <NavLinks to="alimentos"
@@ -146,7 +146,7 @@ const NavBtnLink = styled(LinkR)`
                                 spy={true}
                                 exact='true'
                                 offset={-80}
-                                >Alimentos</NavLinks>
+                                >Crear alimentos</NavLinks>
                             </NavItem>
                             <NavItem>
                                 <NavLinks to="/signup"

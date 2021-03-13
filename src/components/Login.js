@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { loginFn } from "../services/auth";
+import {useState} from 'react'
 import img from '../images/nature.png'
 
 export const Container = styled.div`
@@ -85,11 +86,11 @@ export const Container = styled.div`
             transition: all 0.2s ease-in-out;
             text-decoration: none;
             &:hover {
-                transition: all 0.2s ease-in-out;
-                background: #c6aa8e;
-                color: white;
-            }
-            `;
+            transition: all 0.2s ease-in-out;
+            background: #c6aa8e;
+            color: white;
+        }
+        `;
 
         export const Text = styled.span`
             text-align: ClientRect;
@@ -99,20 +100,41 @@ export const Container = styled.div`
             font-size: 13px;
         `;
 
-        const SignIn = () => {
+        function SignIn () {
+            const [userData, setUserData] = useState({})
+
+            const handleChange =(e)=>{
+            setUserData({
+                ...userData,[e.target.name]:e.target.value
+            })
+            }
+            async function handleSubmit(e) {
+                e.preventDefault()
+                loginFn(userData)
+                }
+            console.log (userData)
+
             return (
                 <>
                     <Container>
                         <FormWrap>
                             <FormContent>
-                                <Form action="#">
+                                <Form onSubmit={handleSubmit}>
                                     <FormH1>Inicia sesión</FormH1>
                                     <FormLabel htmlFor= 'for'>Email</FormLabel>
-                                    <FormInput type='email' required />
+                                    <FormInput 
+                                    type='email' 
+                                    name= 'email'
+                                    onChange={handleChange}
+                                    required />
                                     <FormLabel htmlFor= 'for'>Password</FormLabel>
-                                    <FormInput type='password' required />
+                                    <FormInput 
+                                    type='password'
+                                    name='password'
+                                    onChange={handleChange}
+                                    required />
                                     <FormButton type='submit'>Continuar</FormButton>
-                                    <Text>¿Olivdaste tu contraseña?</Text>
+                                    <Text>¿Olvidaste tu contraseña?</Text>
                                 </Form>
                             </FormContent>
                         </FormWrap>

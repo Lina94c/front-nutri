@@ -5,8 +5,6 @@ import { createAlimento } from "../../services/alimento";
 import { message } from "antd"
 
 
-
-
 const FormH1 = styled.h1`
 margin-bottom: 10px;
 font-family: 'Montserrat', sans-serif;
@@ -85,8 +83,8 @@ outline:none;
 border-radius: 4px;
 `;
 
-function AlimentoForm() {
-    const [alimentoData, setAlimentoData] = useState({})
+function EditForm(alimento) {
+    const [alimentoData, setAlimentoData] = useState(alimento)
     
     const handleChange =(e)=>{
      setAlimentoData({
@@ -152,4 +150,4 @@ function AlimentoForm() {
     )
 }
 
-export default AlimentoForm;
+export default EditForm;

@@ -19,8 +19,7 @@ import img from '../images/nature.png';
     @media screen and (max-width: 300px) {
     }
     `;
-
-
+    
     const FormContent = styled.div`
         margin-top:40px;
         margin-bottom:40px;
@@ -122,14 +121,16 @@ function Signup() {
         <Form onSubmit={handleSubmit}>
         <FormH1>Crea tu usuario</FormH1>
         <FormLabel htmlFor= 'for'>Nombre usuario</FormLabel>
-        <FormInput  
+        <FormInput
+        id='username'
         name='username' 
         label='username' 
         onChange={handleChange}
         required />
 
         <FormLabel htmlFor= 'for'>e-mail</FormLabel>
-        <FormInput 
+        <FormInput
+        id='email'
         type='email'
         name='email' 
         label='email'
@@ -137,11 +138,12 @@ function Signup() {
         required />
         <FormLabel htmlFor= 'for'>Password</FormLabel>
         <FormInput 
+        id='password'
          type='password' 
          name='password'
          onChange={handleChange}
          required />
-        <FormButton>Registrar</FormButton>
+        <FormButton type='submit'>Registrar</FormButton>
         </Form>
         </FormContent>
       </FormWrap>
