@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {useState} from 'react';
 import { createAlimento } from "../../services/alimento";
 import { message } from "antd"
+import{ Link as LinkR } from 'react-router-dom';
 
 
 
@@ -16,7 +17,7 @@ font-weight: 400;
 text-align: center;
 `;
 
-const FormButton = styled.button`
+const FormBtnLink = styled.button`
         background: rgb(211,232,186);
         max-width: 130px;
         padding: 16px 0;
@@ -146,7 +147,7 @@ function AlimentoForm() {
                     label='quantity'
                     onChange={handleChange}
             />
-              <FormButton type='submit'> Crear </FormButton>
+              <FormBtnLink type='submit' to="/all"> Crear </FormBtnLink>
             </Form>
            
     )

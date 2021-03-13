@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import AllAlimentos from '../components/alimentos/AllAlimentos copy';
+import AllAlimentos from '../components/alimentos/AllAlimentos';
 
 const Wrapper = styled.main`
   display: flex;

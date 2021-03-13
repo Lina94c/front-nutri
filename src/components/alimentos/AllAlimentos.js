@@ -6,6 +6,9 @@ import { getAllAlimentos} from "../../services/alimento"
 
 const Box = styled.div`
  max-width:200px;
+ right:0;
+ left:0;
+ z-index:1;
 `;
 
 const FormH1 = styled.h1`
