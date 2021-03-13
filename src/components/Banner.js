@@ -4,7 +4,7 @@ import Video from '../images/happy.mp4';
 import { Button } from './Button';
 
 
-export const BannerContainer = styled.div`
+const BannerContainer = styled.div`
     background: black;
     display: flex;
     justify-content: center;
@@ -14,14 +14,14 @@ export const BannerContainer = styled.div`
     `
 
 
-export const BannerBg = styled.div`
+const BannerBg = styled.div`
     top: 0;
     bottom: 0;
     width: cover;
     height: 100%;
 `
 
-export const VideoBg = styled.video`
+const VideoBg = styled.video`
     width: 100%;
     height: 100%;
     -o-object-fit:cover;
@@ -29,7 +29,7 @@ export const VideoBg = styled.video`
     background: black;
 `;
 
-export const BannerContent = styled.div`
+const BannerContent = styled.div`
     z-index: 3;
     position: absolute;
     padding: 8px 24px;
@@ -39,7 +39,7 @@ export const BannerContent = styled.div`
     
 `
 
-export const BannerH1 = styled.h1`
+const BannerH1 = styled.h1`
     font-family: 'Montserrat', sans-serif;
     color: #fff;
     font-size: 48px;
@@ -52,7 +52,7 @@ export const BannerH1 = styled.h1`
     }
 `
 
-export const BannerP = styled.p`
+const BannerP = styled.p`
     font-family: 'Montserrat', sans-serif;
     margin-top: 24px;
     color: #fff;
@@ -69,7 +69,7 @@ export const BannerP = styled.p`
     }
 `
 
-export const BannerBtnWrapper = styled.div`
+const BannerBtnWrapper = styled.div`
     margin-top: 32px;
     display: flex;
     flex-direction: column;
@@ -95,8 +95,7 @@ const Banner = () => {
                     Alcanza tus objetivos y vive más saludable
                 </BannerP>
                 <BannerBtnWrapper>
-                    <Button to="signup" 
-                    >
+                    <Button to="signup">
                         Registrate 
                     </Button>
                 </BannerBtnWrapper>

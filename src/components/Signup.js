@@ -1,8 +1,8 @@
 import { message } from "antd"
-import { signupFn } from "../services/auth"
+import { signupFn } from "../services/auth";
+import {useState} from 'react'
 import styled from 'styled-components';
 import img from '../images/nature.png';
-import e from "cors";
 
     const Container = styled.div`
     background-image: url(${img});
@@ -97,16 +97,24 @@ import e from "cors";
 
 function Signup() {
 
-  async function handleSubmit(userInfo) {
-    e.preventDefault()
-    try {
-      await signupFn(userInfo)
-      message.success("Account created")
-    } catch (error) {
-      message.error(error.response.data.message)
-    }
-  }
+  const [userData, setUserData] = useState({})
 
+  const handleChange =(e)=>{
+   setUserData({
+     ...userData,[e.target.name]:e.target.value
+   })
+  }
+  async function handleSubmit(e) {
+     e.preventDefault()
+      console.log(e)
+      try {
+        await signupFn(userData)
+        message.success("Usuario creado")
+      } catch (error) {
+        console.log("hay un error",error.data.response)
+      }
+    }
+ console.log (userData)
   return (
     <Container>
       <FormWrap>
@@ -114,11 +122,25 @@ function Signup() {
         <Form onSubmit={handleSubmit}>
         <FormH1>Crea tu usuario</FormH1>
         <FormLabel htmlFor= 'for'>Nombre usuario</FormLabel>
-        <FormInput type='text' name='username' id='username' required />
+        <FormInput  
+        name='username' 
+        label='username' 
+        onChange={handleChange}
+        required />
+
         <FormLabel htmlFor= 'for'>e-mail</FormLabel>
-        <FormInput type='email' required />
+        <FormInput 
+        type='email'
+        name='email' 
+        label='email'
+        onChange={handleChange}
+        required />
         <FormLabel htmlFor= 'for'>Password</FormLabel>
-        <FormInput type='password' required />
+        <FormInput 
+         type='password' 
+         name='password'
+         onChange={handleChange}
+         required />
         <FormButton>Registrar</FormButton>
         </Form>
         </FormContent>
